@@ -1,0 +1,42 @@
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+
+group = mod_group
+version = mod_version
+
+java {
+    archivesBaseName = "${mod_name}-${mc_version}"
+    toolchain.languageVersion = JavaLanguageVersion.of(8)
+}
+
+minecraft {
+    mappings channel: map_channel, version: map_version
+}
+
+repositories {
+    maven {
+        url = 'https://cfa2.cursemaven.com'
+    }
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
+
+    implementation fg.deobf("curse.maven:spartan-weaponry-278141:3571769")
+    implementation fg.deobf("curse.maven:baubles-227083:2518667")
+    implementation fg.deobf("curse.maven:thaumcraft-223628:2629023")
+    implementation fg.deobf("curse.maven:embers-300777:3225431")
+    implementation fg.deobf("curse.maven:botania-225643:3330934")
+
+}
+
+jar.finalizedBy('reobfJar')
