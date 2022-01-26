@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"www",
+    "www",
+	"wws"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:wool",
+	  "data": 32767
+    },
+    "w": {
+		"item": "botania:manaresource",
+		"data": 3
+    }
+  },
+  "result": {
+    "item": "spartanweaponryarcana:material",
+	"data": 1,
+	"count": 4
+  },
+  "conditions": [
+	{
+		"type" : "mod_exists",
+		"mod": "botania"
+	}
+  ]
+}

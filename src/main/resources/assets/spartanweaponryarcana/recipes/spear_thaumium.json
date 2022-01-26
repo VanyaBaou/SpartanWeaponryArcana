@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "i",
+	"h"
+  ],
+  "key": {
+    "i": {
+      "type": "forge:ore_dict",
+	  "ore": "ingotThaumium"
+    },
+    "h": {
+      "item": "spartanweaponry:material",
+	  "data": 1
+    }
+  },
+  "result": {
+    "item": "spartanweaponryarcana:spear_thaumium"
+  },
+  "conditions": [
+	{
+      "type": "item_exists",
+      "item": "spartanweaponryarcana:spear_thaumium"
+    },
+	{
+		"type" : "mod_exists",
+		"mod": "thaumcraft"
+	}
+  ]
+}

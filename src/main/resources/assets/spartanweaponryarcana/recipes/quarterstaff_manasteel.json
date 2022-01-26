@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "p",
+    "i"
+  ],
+  "key": {
+    "i": {
+      "type": "forge:ore_dict",
+      "ore": "ingotManasteel"
+    },
+    "p": {
+      "item": "spartanweaponryarcana:material",
+      "data": 1
+    }
+  },
+  "result": {
+    "item": "spartanweaponryarcana:staff_manasteel"
+  },
+  "conditions": [
+    {
+      "type": "item_exists",
+      "item": "spartanweaponryarcana:staff_manasteel"
+    },
+	{
+		"type" : "mod_exists",
+		"mod": "botania"
+	}
+  ]
+}

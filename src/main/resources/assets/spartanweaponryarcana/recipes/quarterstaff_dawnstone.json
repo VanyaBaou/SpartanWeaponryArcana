@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "p",
+    "i"
+  ],
+  "key": {
+    "i": {
+      "type": "forge:ore_dict",
+      "ore": "ingotDawnstone"
+    },
+    "p": {
+      "item": "spartanweaponry:material",
+      "data": 1
+    }
+  },
+  "result": {
+    "item": "spartanweaponryarcana:staff_dawnstone"
+  },
+  "conditions": [
+    {
+      "type": "item_exists",
+      "item": "spartanweaponryarcana:staff_dawnstone"
+    },
+	{
+		"type" : "mod_exists",
+		"mod": "embers"
+	}
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "bsi",
+    "sw ",
+    "i h"
+  ],
+  "key": {
+    "i": {
+      "type": "forge:ore_dict",
+      "ore": "ingotElvenElementium"
+    },
+    "h": {
+      "item": "spartanweaponryarcana:material",
+      "data": 2
+    },
+    "b": {
+      "item": "spartanweaponryarcana:material",
+	  "data": 4
+    },
+    "s": {
+      "item": "botania:manaresource",
+      "data": 16
+    },
+    "w": {
+      "item": "botania:dreamwood",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "spartanweaponryarcana:crossbow_elementium"
+  },
+  "conditions": [
+    {
+      "type": "item_exists",
+      "item": "spartanweaponryarcana:crossbow_elementium"
+    }
+  ]
+}

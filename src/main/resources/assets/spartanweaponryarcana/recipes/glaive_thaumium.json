@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " i",
+    " i",
+    "ip"
+  ],
+  "key": {
+    "i": {
+      "type": "forge:ore_dict",
+      "ore": "ingotThaumium"
+    },
+    "p": {
+      "item": "spartanweaponry:material",
+      "data": 1
+    }
+  },
+  "result": {
+    "item": "spartanweaponryarcana:glaive_thaumium"
+  },
+  "conditions": [
+    {
+      "type": "item_exists",
+      "item": "spartanweaponryarcana:glaive_thaumium"
+    },
+	{
+		"type" : "mod_exists",
+		"mod": "thaumcraft"
+	}
+  ]
+}

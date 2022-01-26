@@ -1,0 +1,6 @@
+{
+    "parent":"spartanweaponry:item/handle",
+    "textures": {
+        "layer0":"spartanweaponryarcana:items/crossbow_limb_dreamwood"
+    }
+}

@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "bsi",
+    "sw ",
+    "i h"
+  ],
+  "key": {
+    "i": {
+      "type": "forge:ore_dict",
+      "ore": "ingotManasteel"
+    },
+    "h": {
+      "item": "spartanweaponryarcana:material",
+      "data": 0
+    },
+    "b": {
+      "item": "botania:livingwoodbow"
+    },
+    "s": {
+      "item": "botania:manaresource",
+      "data": 16
+    },
+    "w": {
+      "item": "botania:livingwood",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "spartanweaponryarcana:crossbow_manasteel"
+  },
+  "conditions": [
+    {
+      "type": "item_exists",
+      "item": "spartanweaponryarcana:crossbow_manasteel"
+    }
+  ]
+}

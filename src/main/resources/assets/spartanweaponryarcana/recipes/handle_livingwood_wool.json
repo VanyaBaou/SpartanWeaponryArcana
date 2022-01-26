@@ -1,0 +1,46 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients":	[
+		[
+			{
+				"item": "botania:manaresource",
+				"data": 3
+			}
+		],
+		[
+			{
+				"item": "botania:manaresource",
+				"data": 3
+			}
+		],
+		[
+			{
+				"item": "botania:manaresource",
+				"data": 3
+			}
+		],
+		[
+			{
+				"item": "botania:manaresource",
+				"data": 3
+			}
+		],
+		[
+			{
+			"item": "minecraft:wool",
+			"data": 32767
+			}
+		]
+	],
+  "result": {
+    "item": "spartanweaponryarcana:material",
+	"data": 0,
+	"count": 4
+  },
+  "conditions": [
+	{
+		"type" : "mod_exists",
+		"mod": "botania"
+	}
+  ]
+}

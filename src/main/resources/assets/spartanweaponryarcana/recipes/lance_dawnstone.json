@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "i",
+	"p",
+	"h"
+  ],
+  "key": {
+    "i": {
+      "type": "forge:ore_dict",
+	  "ore": "ingotDawnstone"
+    },
+    "p": {
+      "item": "spartanweaponry:material",
+	  "data": 1
+    },
+    "h": {
+      "item": "spartanweaponry:material",
+	  "data": 0
+    }
+  },
+  "result": {
+    "item": "spartanweaponryarcana:lance_dawnstone"
+  },
+  "conditions": [
+	{
+      "type": "item_exists",
+      "item": "spartanweaponryarcana:lance_dawnstone"
+    },
+	{
+		"type" : "mod_exists",
+		"mod": "embers"
+	}
+  ]
+}

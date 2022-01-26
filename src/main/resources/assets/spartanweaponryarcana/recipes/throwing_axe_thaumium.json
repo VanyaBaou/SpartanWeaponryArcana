@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "hi",
+	" i"
+  ],
+  "key": {
+    "i": {
+      "type": "forge:ore_dict",
+	  "ore": "ingotThaumium"
+    },
+    "h": {
+      "item": "spartanweaponry:material",
+	  "data": 0
+    }
+  },
+  "result": {
+    "item": "spartanweaponryarcana:throwing_axe_thaumium"
+  },
+  "conditions": [
+	{
+      "type": "item_exists",
+      "item": "spartanweaponryarcana:throwing_axe_thaumium"
+    },
+	{
+		"type" : "mod_exists",
+		"mod": "thaumcraft"
+	}
+  ]
+}

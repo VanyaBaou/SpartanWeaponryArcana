@@ -1,0 +1,52 @@
+{
+    "entries" :[
+        {
+		"key": "THAUMIUM_WEAPONRY",
+		"name": "research.spartanweaponryarcana:THAUMIUM_WEAPONRY.title",
+		"icons": [ "spartanweaponryarcana:textures/items/dagger_thaumium.png", "spartanweaponryarcana:textures/items/longsword_thaumium.png",
+		       "spartanweaponryarcana:textures/items/katana_thaumium.png", "spartanweaponryarcana:textures/items/saber_thaumium.png",
+		       "spartanweaponryarcana:textures/items/rapier_thaumium.png", "spartanweaponryarcana:textures/items/greatsword_thaumium.png",
+		       "spartanweaponryarcana:textures/items/hammer_thaumium.png", "spartanweaponryarcana:textures/items/warhammer_thaumium.png",
+		       "spartanweaponryarcana:textures/items/spear_thaumium.png", "spartanweaponryarcana:textures/items/halberd_thaumium.png",
+		       "spartanweaponryarcana:textures/items/pike_thaumium.png", "spartanweaponryarcana:textures/items/lance_thaumium.png",
+               "spartanweaponryarcana:textures/items/longbow_thaumium_standby.png", "spartanweaponryarcana:textures/items/crossbow_thaumium_standby.png",
+		       "spartanweaponryarcana:textures/items/throwing_knife_thaumium.png", "spartanweaponryarcana:textures/items/throwing_axe_thaumium.png",
+		       "spartanweaponryarcana:textures/items/javelin_thaumium.png", "spartanweaponryarcana:textures/items/boomerang_thaumium.png",
+		       "spartanweaponryarcana:textures/items/battleaxe_thaumium.png", "spartanweaponryarcana:textures/items/mace_thaumium.png",
+		       "spartanweaponryarcana:textures/items/glaive_thaumium.png", "spartanweaponryarcana:textures/items/quarterstaff_thaumium.png",
+		       "spartanweaponryarcana:textures/items/parrying_dagger_thaumium.png"],
+		"category": "ALCHEMY", "location": [ 6,6 ],
+		"parents": [ "METALLURGY" ],
+        "stages": [
+                {
+                    "text": "research.spartanweaponryarcana:THAUMIUM_WEAPONRY.stage.1",
+					"recipes": ["spartanweaponryarcana:thaumium_weaponry"]
+				}
+			]
+		},
+		{
+        "key": "VOID_WEAPONRY",
+        "name": "research.spartanweaponryarcana:VOID_WEAPONRY.title",
+        "icons": [ "spartanweaponryarcana:textures/items/dagger_voidmetal.png", "spartanweaponryarcana:textures/items/longsword_voidmetal.png",
+               "spartanweaponryarcana:textures/items/katana_voidmetal.png", "spartanweaponryarcana:textures/items/saber_voidmetal.png",
+               "spartanweaponryarcana:textures/items/rapier_voidmetal.png", "spartanweaponryarcana:textures/items/greatsword_voidmetal.png",
+               "spartanweaponryarcana:textures/items/hammer_voidmetal.png", "spartanweaponryarcana:textures/items/warhammer_voidmetal.png",
+               "spartanweaponryarcana:textures/items/spear_voidmetal.png", "spartanweaponryarcana:textures/items/halberd_voidmetal.png",
+               "spartanweaponryarcana:textures/items/pike_voidmetal.png", "spartanweaponryarcana:textures/items/lance_voidmetal.png",
+               "spartanweaponryarcana:textures/items/longbow_voidmetal_standby.png", "spartanweaponryarcana:textures/items/crossbow_voidmetal_standby.png",
+               "spartanweaponryarcana:textures/items/throwing_knife_voidmetal.png", "spartanweaponryarcana:textures/items/throwing_axe_voidmetal.png",
+               "spartanweaponryarcana:textures/items/javelin_voidmetal.png", "spartanweaponryarcana:textures/items/boomerang_voidmetal.png",
+               "spartanweaponryarcana:textures/items/battleaxe_voidmetal.png", "spartanweaponryarcana:textures/items/mace_voidmetal.png",
+               "spartanweaponryarcana:textures/items/glaive_voidmetal.png", "spartanweaponryarcana:textures/items/quarterstaff_voidmetal.png",
+               "spartanweaponryarcana:textures/items/parrying_dagger_voidmetal.png"],
+        "category": "ELDRITCH", "location": [ 3,5 ],
+        "parents": [ "BASEELDRITCH" ],
+        "stages": [
+                {
+                    "text": "research.spartanweaponryarcana:VOID_WEAPONRY.stage.1",
+                    "recipes": ["spartanweaponryarcana:void_weaponry"]
+                }
+            ]
+        }
+	]
+}

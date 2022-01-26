@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " i",
+    "ih"
+  ],
+  "key": {
+    "i": {
+      "type": "forge:ore_dict",
+	  "ore": "ingotDawnstone"
+    },
+    "h": {
+      "item": "spartanweaponry:material",
+	  "data": 0
+    }
+  },
+  "result": {
+    "item": "spartanweaponryarcana:parrying_dagger_dawnstone"
+  },
+  "conditions": [
+	{
+      "type": "item_exists",
+      "item": "spartanweaponryarcana:parrying_dagger_dawnstone"
+    },
+	{
+		"type" : "mod_exists",
+		"mod": "embers"
+	}
+  ]
+}

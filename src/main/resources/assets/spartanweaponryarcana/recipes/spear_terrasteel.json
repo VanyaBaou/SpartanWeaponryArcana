@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "i",
+	"h"
+  ],
+  "key": {
+    "i": {
+      "type": "forge:ore_dict",
+	  "ore": "ingotTerrasteel"
+    },
+    "h": {
+      "item": "spartanweaponryarcana:material",
+	  "data": 1
+    }
+  },
+  "result": {
+    "item": "spartanweaponryarcana:spear_terrasteel"
+  },
+  "conditions": [
+	{
+      "type": "item_exists",
+      "item": "spartanweaponryarcana:spear_terrasteel"
+    },
+	{
+		"type" : "mod_exists",
+		"mod": "botania"
+	}
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " i",
+    "ih"
+  ],
+  "key": {
+    "i": {
+      "type": "forge:ore_dict",
+	  "ore": "ingotTerrasteel"
+    },
+    "h": {
+      "item": "spartanweaponryarcana:material",
+	  "data": 0
+    }
+  },
+  "result": {
+    "item": "spartanweaponryarcana:parrying_dagger_terrasteel"
+  },
+  "conditions": [
+	{
+      "type": "item_exists",
+      "item": "spartanweaponryarcana:parrying_dagger_terrasteel"
+    },
+	{
+		"type" : "mod_exists",
+		"mod": "botania"
+	}
+  ]
+}

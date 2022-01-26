@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "i",
+	"h"
+  ],
+  "key": {
+    "i": {
+      "type": "forge:ore_dict",
+	  "ore": "ingotElvenElementium"
+    },
+    "h": {
+      "item": "spartanweaponryarcana:material",
+	  "data": 3
+    }
+  },
+  "result": {
+    "item": "spartanweaponryarcana:spear_elementium"
+  },
+  "conditions": [
+	{
+      "type": "item_exists",
+      "item": "spartanweaponryarcana:spear_elementium"
+    },
+	{
+		"type" : "mod_exists",
+		"mod": "botania"
+	}
+  ]
+}

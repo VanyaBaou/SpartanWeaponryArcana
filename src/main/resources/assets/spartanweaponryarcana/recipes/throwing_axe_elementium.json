@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "hi",
+	" i"
+  ],
+  "key": {
+    "i": {
+      "type": "forge:ore_dict",
+	  "ore": "ingotElvenElementium"
+    },
+    "h": {
+      "item": "spartanweaponryarcana:material",
+	  "data": 2
+    }
+  },
+  "result": {
+    "item": "spartanweaponryarcana:throwing_axe_elementium"
+  },
+  "conditions": [
+	{
+      "type": "item_exists",
+      "item": "spartanweaponryarcana:throwing_axe_elementium"
+    },
+	{
+		"type" : "mod_exists",
+		"mod": "botania"
+	}
+  ]
+}

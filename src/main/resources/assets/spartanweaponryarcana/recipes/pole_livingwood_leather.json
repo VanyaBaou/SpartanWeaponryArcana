@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"www",
+    "www",
+	"wws"
+  ],
+  "key": {
+    "s": {
+      "type": "forge:ore_dict",
+	  "ore": "leather"
+    },
+    "w": {
+		"item": "botania:manaresource",
+		"data": 3
+    }
+  },
+  "result": {
+    "item": "spartanweaponryarcana:material",
+	"data": 1,
+	"count": 4
+  },
+  "conditions": [
+	{
+		"type" : "mod_exists",
+		"mod": "botania"
+	}
+  ]
+}

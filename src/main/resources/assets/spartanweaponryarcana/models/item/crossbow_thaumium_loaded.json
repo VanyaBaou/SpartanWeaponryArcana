@@ -1,0 +1,6 @@
+{
+    "parent": "spartanweaponry:item/crossbow_wood",
+    "textures": {
+        "layer0":"spartanweaponryarcana:items/crossbow_thaumium_loaded"
+    }
+}

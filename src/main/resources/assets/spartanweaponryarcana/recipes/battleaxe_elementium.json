@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iii",
+	"isi",
+	" h "
+  ],
+  "key": {
+    "i": {
+      "type": "forge:ore_dict",
+	  "ore": "ingotElvenElementium"
+    },
+    "h": {
+      "item": "spartanweaponryarcana:material",
+	  "data": 2
+    },
+	"s": {
+	  "item": "botania:manaresource",
+	  "data": 13
+	}
+  },
+  "result": {
+    "item": "spartanweaponryarcana:battleaxe_elementium"
+  },
+  "conditions": [
+	{
+      "type": "item_exists",
+      "item": "spartanweaponryarcana:battleaxe_elementium"
+    },
+	{
+		"type" : "mod_exists",
+		"mod": "botania"
+	}
+  ]
+}

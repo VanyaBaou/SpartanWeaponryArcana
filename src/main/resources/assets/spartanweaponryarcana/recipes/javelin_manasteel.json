@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "hi"
+  ],
+  "key": {
+    "i": {
+      "type": "forge:ore_dict",
+	  "ore": "ingotManasteel"
+    },
+    "h": {
+      "item": "spartanweaponryarcana:material",
+	  "data": 1
+    }
+  },
+  "result": {
+    "item": "spartanweaponryarcana:javelin_manasteel"
+  },
+  "conditions": [
+	{
+      "type": "item_exists",
+      "item": "spartanweaponryarcana:javelin_manasteel"
+    },
+	{
+		"type" : "mod_exists",
+		"mod": "botania"
+	}
+  ]
+}

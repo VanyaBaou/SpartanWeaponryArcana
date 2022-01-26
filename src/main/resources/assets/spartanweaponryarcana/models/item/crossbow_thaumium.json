@@ -1,0 +1,42 @@
+{
+    "parent": "spartanweaponry:item/crossbow_wood",
+    "textures": {
+        "layer0":"spartanweaponryarcana:items/crossbow_thaumium_standby"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "pulling": 1
+            },
+            "model": "spartanweaponryarcana:item/crossbow_thaumium_pulling_0"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "pull": 0.65
+            },
+            "model": "spartanweaponryarcana:item/crossbow_thaumium_pulling_1"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "pull": 0.9
+            },
+            "model": "spartanweaponryarcana:item/crossbow_thaumium_pulling_2"
+        },
+        {
+            "predicate": {
+                "pulling": 0,
+                "pull": 1.0
+            },
+            "model": "spartanweaponryarcana:item/crossbow_thaumium_loaded"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "pull": 1.0
+            },
+            "model": "spartanweaponryarcana:item/crossbow_thaumium_firing"
+        }
+    ]
+}
