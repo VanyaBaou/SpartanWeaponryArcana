@@ -1,15 +1,14 @@
 {
     "parent":"spartanweaponry:item/parrying_dagger_wood",
     "textures": {
-        "layer0":"spartanweaponryarcana:items/custom/parrying_dagger_manasteel_layer_1",
-        "layer1":"spartanweaponryarcana:items/custom/parrying_dagger_manasteel_layer_2"
+        "layer0":"spartanweaponry:items/parrying_dagger_iron"
     },
     "overrides": [
         {
             "predicate": {
                 "blocking": 1
             },
-            "model": "spartanweaponryarcana:item/parrying_dagger_manasteel_blocking"
+            "model": "spartanweaponry:item/parrying_dagger_iron_blocking"
         }
     ]
 }
