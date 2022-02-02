@@ -1,6 +1,6 @@
 {
 	"conditions": {
-		"mod_exists": "com.oblivioussp.spartanweaponryarcana.util.ConditionFactoryModId",
+		"mod_exists": "com.vanyabaou.spartanweaponryarcana.util.ConditionFactoryModId",
 		"item_exists": "com.oblivioussp.spartanweaponry.util.ConditionFactoryItemExists"
 	}
 }

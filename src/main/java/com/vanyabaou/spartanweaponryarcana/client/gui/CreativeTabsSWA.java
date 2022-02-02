@@ -9,7 +9,6 @@ import net.minecraft.item.ItemStack;
 public class CreativeTabsSWA 
 {
 
-
 	public static final CreativeTabs TAB_SWA = new CreativeTabs(SpartanWeaponryArcana.MOD_ID + ":tabBasic.name") {
 
 		@Override

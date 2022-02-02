@@ -8,7 +8,7 @@
             "predicate": {
                 "blocking": 1
             },
-            "model": "spartanweaponry:item/parrying_dagger_iron_blocking"
+            "model": "spartanweaponry:item/parrying_dagger_voidmetal_blocking"
         }
     ]
 }
