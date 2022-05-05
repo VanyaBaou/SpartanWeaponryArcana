@@ -31,7 +31,7 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
 
-    implementation fg.deobf("curse.maven:spartan-weaponry-278141:3571769")
+    implementation fg.deobf("curse.maven:spartan-weaponry-278141:3634012")
     implementation fg.deobf("curse.maven:baubles-227083:2518667")
     implementation fg.deobf("curse.maven:thaumcraft-223628:2629023")
     implementation fg.deobf("curse.maven:embers-300777:3225431")

@@ -1,14 +1,14 @@
 {
     "parent":"spartanweaponry:item/parrying_dagger_wood",
     "textures": {
-        "layer0":"spartanweaponry:items/parrying_dagger_iron"
+        "layer0":"spartanweaponryarcana:items/parrying_dagger_thaumium"
     },
     "overrides": [
         {
             "predicate": {
                 "blocking": 1
             },
-            "model": "spartanweaponry:item/parrying_dagger_thaumium_blocking"
+            "model": "spartanweaponryarcana:item/parrying_dagger_thaumium_blocking"
         }
     ]
 }
