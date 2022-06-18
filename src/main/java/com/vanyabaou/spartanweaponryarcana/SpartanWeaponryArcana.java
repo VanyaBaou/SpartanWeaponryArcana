@@ -23,7 +23,7 @@ public class SpartanWeaponryArcana {
 
     public static final String MOD_ID = "spartanweaponryarcana";
     public static final String MOD_NAME = "SpartanWeaponryArcana";
-    public static final String VERSION = "1.4.0";
+    public static final String VERSION = "1.4.1-1.1a";
     public static final String DEPENDENCIES = "required-after:spartanweaponry@[1.4.0,);after:baubles;after:botania;after:thaumcraft;after:embers";
     public static final String MCVERSION = "[1.12.2]";
     public static final String NETWORKCHANNEL = "swarcana";
@@ -56,7 +56,7 @@ public class SpartanWeaponryArcana {
 
     @Mod.EventHandler
     public void postinit(FMLPostInitializationEvent event) {
-        if(ModHelper.isBotaniaLoaded())
+        if (ModHelper.isBotaniaLoaded())
             LexiconEntries.postInit();
         proxy.postInit(event);
         LogHelper.debug("Finished postInit phase!");

@@ -6,12 +6,12 @@ import com.vanyabaou.spartanweaponryarcana.util.ModHelper;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 
-public class CreativeTabsSWA 
-{
+import javax.annotation.Nonnull;
+
+public class CreativeTabsSWA {
 
 	public static final CreativeTabs TAB_SWA = new CreativeTabs(SpartanWeaponryArcana.MOD_ID + ":tabBasic.name") {
-
-		@Override
+		@Override @Nonnull
 		public ItemStack getTabIconItem() {
 			return ModHelper.getTerrasteelStack();
 		}

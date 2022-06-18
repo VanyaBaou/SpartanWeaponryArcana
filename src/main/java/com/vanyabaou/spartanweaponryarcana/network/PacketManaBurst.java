@@ -9,42 +9,33 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 
-public class PacketManaBurst extends PacketBase<PacketManaBurst>
-{
+public class PacketManaBurst extends PacketBase<PacketManaBurst> {
 	public PacketManaBurst() {}
 	
 	@Override
-	public void fromBytes(ByteBuf buf)
-	{
-	}
+	public void fromBytes(ByteBuf buf) {}
 
 	@Override
-	public void toBytes(ByteBuf buf) 
-	{
-	}
+	public void toBytes(ByteBuf buf) {}
 
 	@Override
-	public void handleClientSide(PacketManaBurst message, EntityPlayer player) 
-	{
-	}
+	public void handleClientSide(PacketManaBurst message, EntityPlayer player) {}
 
 	@Override
-	public void handleServerSide(PacketManaBurst message, EntityPlayerMP player)
-	{
+	public void handleServerSide(PacketManaBurst message, EntityPlayerMP player) {
 		ItemStack mainStack;
 		
 		//Log.info("Received Mana Burst Packet! Processing...");
 		
-		if(player == null)	return;
+		if (player == null)
+			return;
 		
 		mainStack = player.getHeldItem(EnumHand.MAIN_HAND);
 		
-		if(!mainStack.isEmpty() && mainStack.getItem() instanceof IWeaponPropertyContainer)
-		{
+		if (!mainStack.isEmpty() && mainStack.getItem() instanceof IWeaponPropertyContainer) {
 			IWeaponPropertyContainer container = ((IWeaponPropertyContainer)mainStack.getItem());
 			
-			if(container.hasWeaponProperty(WeaponPropertySWA.TerraSlash))
-			{
+			if (container.hasWeaponProperty(WeaponPropertySWA.TerraSlash)) {
 				ManaBurstHelper.trySpawnBurst(player);
 				//Log.info("Spawned Mana Burst!");
 			}

@@ -8,12 +8,13 @@ import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemMultiSWA extends ItemSWA 
-{
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
+public class ItemMultiSWA extends ItemSWA {
 	protected String[] unlocNames;
 	
-	public ItemMultiSWA(String registryName, String... unlocalizedNames) 
-	{
+	public ItemMultiSWA(String registryName, String... unlocalizedNames) {
 		super(registryName);
 		this.unlocNames = unlocalizedNames;
 		this.hasSubtypes = true;
@@ -28,29 +29,23 @@ public class ItemMultiSWA extends ItemSWA
      * returns a list of items with the same ID, but different meta (eg: dye returns 16 items)
      */
     @SideOnly(Side.CLIENT)
-    @Override
-    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems)
-    {
-    	if(tab == this.getCreativeTab())
-    	{
-	    	if(unlocNames == null)
-	    	{
+    @Override @ParametersAreNonnullByDefault
+    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems) {
+    	if (tab == this.getCreativeTab()) {
+	    	if (unlocNames == null) {
 	    		super.getSubItems(tab, subItems);
 	    		return;
 	    	}
-	    	for(int i = 0; i < unlocNames.length; i++)
-	    	{
+	    	for (int i = 0; i < unlocNames.length; i++) {
 	    		subItems.add(new ItemStack(this, 1, i));
 	    	}
     	}
     }
     
-    @Override
-    public String getItemStackDisplayName(ItemStack stack)
-    {
+    @Override @Nonnull
+    public String getItemStackDisplayName(ItemStack stack) {
     	if(stack.getItemDamage() >= unlocNames.length)
     		return super.getItemStackDisplayName(stack);
-    	
     	String unlocName = unlocNames[stack.getItemDamage()];
         return StringHelper.translateString(unlocName + ".name", "item");
     }

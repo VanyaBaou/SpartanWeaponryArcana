@@ -8,14 +8,11 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public abstract class PacketBase<REQ extends IMessage> implements IMessage, IMessageHandler<REQ, REQ>
-{
+public abstract class PacketBase<REQ extends IMessage> implements IMessage, IMessageHandler<REQ, REQ> {
 	@Override
-	public REQ onMessage(final REQ message, final MessageContext ctx)
-	{
+	public REQ onMessage(final REQ message, final MessageContext ctx) {
 		IThreadListener mainThread;
-		if (ctx.side.isServer())
-		{
+		if (ctx.side.isServer()) {
 			//mainThread = ctx.getServerHandler().player.getServer();
 			EntityPlayerMP player = ctx.getServerHandler().player;
 			player.getServer().addScheduledTask(new Runnable()
@@ -27,9 +24,7 @@ public abstract class PacketBase<REQ extends IMessage> implements IMessage, IMes
 				}
 			});
 			
-		}
-		else
-		{
+		} else {
 			mainThread = Minecraft.getMinecraft();
 			mainThread.addScheduledTask(new Runnable()
 			{

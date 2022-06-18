@@ -27,38 +27,34 @@ import vazkii.botania.api.mana.IManaUsingItem;
 
 @Optional.Interface(iface="vazkii.botania.api.mana.IManaUsingItem", modid=ModHelper.MOD_ID_BOTANIA)
 @Optional.Interface(iface="vazkii.botania.api.item.IPixieSpawner", modid=ModHelper.MOD_ID_BOTANIA)
-public class ItemBoomerangSWA extends ItemBoomerang implements IManaUsingItem, IPixieSpawner
-{
+public class ItemBoomerangSWA extends ItemBoomerang implements IManaUsingItem, IPixieSpawner {
 	protected boolean usesMana = false;
 	protected boolean usesEmbers = false;
 	float pixieChance = 0.0f;
 
-	public ItemBoomerangSWA(String unlocName, ToolMaterialEx material) 
-	{
+	public ItemBoomerangSWA(String unlocName, ToolMaterialEx material) {
 		super(unlocName, SpartanWeaponryArcana.MOD_ID, material);
 		this.setCreativeTab(CreativeTabsSWA.TAB_SWA);
 		
 		usesMana = this.getFirstWeaponPropertyWithType(WeaponPropertySWA.TYPE_MANA_REGENERATE) != null ? true : this.materialEx.getFirstWeaponPropertyWithType(WeaponPropertySWA.TYPE_MANA_REGENERATE) != null;
 		WeaponProperty prop = this.getFirstWeaponPropertyWithType(WeaponPropertySWA.TYPE_PIXIELATED);
-		if(prop != null)
+		if (prop != null)
 			pixieChance = prop.getMagnitude() / 100.0f;
-		else
-		{
+		else {
 			prop = this.materialEx.getFirstWeaponPropertyWithType(WeaponPropertySWA.TYPE_PIXIELATED);
 			if(prop != null)
 				pixieChance = prop.getMagnitude() / 100.0f;
 		}
 
 		WeaponProperty prop2 = this.getFirstWeaponPropertyWithType(WeaponPropertySWA.TYPE_CLOCKWORK);
-		if(prop2 != null)
+		if (prop2 != null)
 			usesEmbers = true;
-		else
-		{
+		else {
 			prop2 = this.materialEx.getFirstWeaponPropertyWithType(WeaponPropertySWA.TYPE_CLOCKWORK);
 			if(prop2 != null)
 				usesEmbers = true;
 		}
-		if (usesEmbers){
+		if (usesEmbers) {
 			this.setMaxDamage(100);
 		}
 	}

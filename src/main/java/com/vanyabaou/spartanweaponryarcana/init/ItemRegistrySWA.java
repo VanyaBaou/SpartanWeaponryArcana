@@ -23,8 +23,7 @@ import thaumcraft.api.ThaumcraftMaterials;
 import vazkii.botania.api.BotaniaAPI;
 
 @EventBusSubscriber(modid = SpartanWeaponryArcana.MOD_ID)
-public class ItemRegistrySWA 
-{
+public class ItemRegistrySWA {
 	public static ToolMaterialEx materialManasteel,
 								materialTerrasteel,
 								materialElementium,
@@ -58,42 +57,33 @@ public class ItemRegistrySWA
 								staffManasteel, staffTerrasteel, staffElementium, staffThaumium, staffVoidmetal, staffDawnstone,
 								parryManasteel, parryTerrasteel, parryElementium, parryThaumium, parryVoidmetal, parryDawnstone;
 								
-	public static ArrayList<Item> weapons = new ArrayList<Item>();
+	public static ArrayList<Item> weapons = new ArrayList<>();
 	
 	@SubscribeEvent
-	public static void registerItems(RegistryEvent.Register<Item> ev)
-	{
+	public static void registerItems(RegistryEvent.Register<Item> ev) {
 		IForgeRegistry<Item> registry = ev.getRegistry();
 		
-		if(ModHelper.isBotaniaLoaded())
-		{
+		if(ModHelper.isBotaniaLoaded()) {
 			materialManasteel = new ToolMaterialEx("manasteel", BotaniaAPI.manasteelToolMaterial, "ingotManasteel", SpartanWeaponryArcana.MOD_ID, BotaniaAPI.manasteelToolMaterial.getAttackDamage(), WeaponPropertySWA.ManaRegenerate);
 			materialTerrasteel = new ToolMaterialEx("terrasteel", BotaniaAPI.terrasteelToolMaterial, "ingotTerrasteel", SpartanWeaponryArcana.MOD_ID, BotaniaAPI.terrasteelToolMaterial.getAttackDamage(), WeaponPropertySWA.ManaRegenerateTerra, WeaponPropertySWA.TerraSlash);
 			materialElementium = new ToolMaterialEx("elementium", BotaniaAPI.elementiumToolMaterial, "ingotElvenElementium", SpartanWeaponryArcana.MOD_ID, BotaniaAPI.elementiumToolMaterial.getAttackDamage(), WeaponPropertySWA.ManaRegenerate, WeaponPropertySWA.Pixielated5P);
-		}
-		else
-		{
+		} else {
 			materialManasteel = new ToolMaterialEx("manasteel", "ingotManasteel", SpartanWeaponryArcana.MOD_ID, 0x0, 0x0, 3, 300, 6.2f, 2.0f, 20, WeaponPropertySWA.ManaRegenerate);
 			materialTerrasteel = new ToolMaterialEx("terrasteel", "ingotTerrasteel", SpartanWeaponryArcana.MOD_ID, 0x0, 0x0, 4, 2300, 9.0f, 3.0f, 26, WeaponPropertySWA.ManaRegenerateTerra, WeaponPropertySWA.TerraSlash);
 			materialElementium = new ToolMaterialEx("elementium", "ingotElvenElementium", SpartanWeaponryArcana.MOD_ID, 0x0, 0x0, 3, 720, 6.2f, 2.0f, 20, WeaponPropertySWA.ManaRegenerate, WeaponPropertySWA.Pixielated5P);
 		}
 		
-		if(ModHelper.isThaumcraftLoaded())
-		{
+		if(ModHelper.isThaumcraftLoaded()) {
 			materialThaumium = new ToolMaterialEx("thaumium", ThaumcraftMaterials.TOOLMAT_THAUMIUM, "ingotThaumium", SpartanWeaponryArcana.MOD_ID);
 			materialVoidmetal = new ToolMaterialEx("voidmetal", ThaumcraftMaterials.TOOLMAT_VOID, "ingotVoid", SpartanWeaponryArcana.MOD_ID, ThaumcraftMaterials.TOOLMAT_VOID.getAttackDamage(), WeaponPropertySWA.Warped);
-		}
-		else
-		{
+		} else {
 			materialThaumium = new ToolMaterialEx("thaumium", "ingotThaumium", SpartanWeaponryArcana.MOD_ID, 0x0, 0x0, 3, 500, 7.0f, 2.5f, 22);
 			materialVoidmetal = new ToolMaterialEx("voidmetal", "ingotVoid", SpartanWeaponryArcana.MOD_ID, 0x0, 0x0, 4, 150, 8.0f, 3.0f, 10);
 		}
 		
-		if(ModHelper.isEmbersLoaded()){
+		if(ModHelper.isEmbersLoaded()) {
 			materialDawnstone = new ToolMaterialEx("dawnstone", RegistryManager.tool_mat_dawnstone, "ingotDawnstone", SpartanWeaponryArcana.MOD_ID, RegistryManager.tool_mat_dawnstone.getAttackDamage(), WeaponPropertySWA.Clockwork);
-		}
-		else
-		{
+		} else {
 			materialDawnstone = new ToolMaterialEx("dawnstone", "ingotDawnstone", SpartanWeaponryArcana.MOD_ID, 0x0, 0x0, 2, -1, 7.5f, 2.5f, 18);
 		}
 		
@@ -490,21 +480,19 @@ public class ItemRegistrySWA
 				addWeaponsToRegister(parryDawnstone);
 			}
 		}
-		for(Item weapon : weapons)
-		{
+		for(Item weapon : weapons) {
 			registry.register(weapon);
 			SpartanWeaponryAPI.addItemModelToRegistry(weapon);
 		}
-		
 		LogHelper.info("Items Registered!");
+
 	}
 	
-	protected static void addWeaponsToRegister(Item... weaponsToAdd)
-	{
-		for(Item weapon : weaponsToAdd)
-		{
+	protected static void addWeaponsToRegister(Item... weaponsToAdd) {
+		for(Item weapon : weaponsToAdd) {
 			if(weapon != null)
 				weapons.add(weapon);
 		}
 	}
+
 }

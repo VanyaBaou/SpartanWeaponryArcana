@@ -33,11 +33,9 @@ public class WeaponPropertyClockwork extends WeaponPropertyWithCallback {
     }
 
     @Override
-    protected void addTooltipDescription(ItemStack stack, List<String> tooltip)
-    {
+    protected void addTooltipDescription(ItemStack stack, List<String> tooltip) {
         tooltip.add(TextFormatting.GOLD + StringHelper.translateFormattedString("clockwork", "tooltip", SpartanWeaponryArcana.MOD_ID));
-        if(GuiScreen.isShiftKeyDown())
-        {
+        if (GuiScreen.isShiftKeyDown()) {
             tooltip.add(TextFormatting.ITALIC + " " + StringHelper.translateString("clockwork.desc", "tooltip", SpartanWeaponryArcana.MOD_ID));
         }
     }
@@ -45,18 +43,18 @@ public class WeaponPropertyClockwork extends WeaponPropertyWithCallback {
     @Override
     public float modifyDamageDealt(ToolMaterialEx material, float baseDamage, DamageSource source, EntityLivingBase attacker, EntityLivingBase victim) {
         ItemStack heldItem = attacker.getHeldItemMainhand();
-        if (attacker instanceof EntityPlayer){
+        if (attacker instanceof EntityPlayer) {
             if (EmberInventoryUtil.getEmberTotal((EntityPlayer)attacker) < 5.0D) {
 //                LogHelper.info("No embers for " + attacker.getName());
                 return 0;
             }
-        }else{
+        } else {
             return super.modifyDamageDealt(material, baseDamage, source, attacker, victim);
         }
         EntityPlayer player = (EntityPlayer)attacker;
-        if (heldItem.hasTagCompound() && !source.isProjectile() && !(heldItem.getItem() instanceof ItemBoomerang)){
+        if (heldItem.hasTagCompound() && !source.isProjectile() && !(heldItem.getItem() instanceof ItemBoomerang)) {
             if (heldItem.getItem() instanceof ItemThrowingWeapon){
-                if (NBTHelper.getInteger(heldItem,"AmmoUsed") == ((ItemThrowingWeapon) heldItem.getItem()).getMaxAmmo(heldItem)){
+                if (NBTHelper.getInteger(heldItem,"AmmoUsed") == ((ItemThrowingWeapon) heldItem.getItem()).getMaxAmmo(heldItem)) {
 //                    LogHelper.info("No ammo for " + heldItem.getDisplayName());
                     return 0;
                 }
@@ -72,7 +70,7 @@ public class WeaponPropertyClockwork extends WeaponPropertyWithCallback {
         if (source.isProjectile() && source.getImmediateSource() instanceof EntityThrownWeapon){
 //            LogHelper.info("Using embers from ThrownWeapon " + source.getImmediateSource().getDisplayName());
             victim.setFire(1);
-            if (!(source.getImmediateSource() instanceof EntityBoomerang)){
+            if (!(source.getImmediateSource() instanceof EntityBoomerang)) {
                 EmberInventoryUtil.removeEmber(player, 5.0D);
             }
             if (!victim.getEntityWorld().isRemote) {
@@ -93,9 +91,8 @@ public class WeaponPropertyClockwork extends WeaponPropertyWithCallback {
     }
 
     @Override
-    public void onItemUpdate(ToolMaterialEx material, ItemStack stack, World world, EntityLivingBase entity, int itemSlot, boolean isSelected)
-    {
-        if (stack.hasTagCompound()){
+    public void onItemUpdate(ToolMaterialEx material, ItemStack stack, World world, EntityLivingBase entity, int itemSlot, boolean isSelected) {
+        if (stack.hasTagCompound()) {
             if (entity instanceof EntityPlayer) {
                 if (EventHandler.getTickCounter2() == 0) {
                     if (EmberInventoryUtil.getEmberTotal((EntityPlayer)entity) > 5.0D) {
@@ -108,8 +105,8 @@ public class WeaponPropertyClockwork extends WeaponPropertyWithCallback {
                     NBTHelper.setBoolean(stack,"didUse", false);
                     if (stack.getItem() instanceof ItemBoomerang ||
                             stack.getItem() instanceof ItemCrossbow ||
-                            stack.getItem() instanceof ItemLongbow){
-                    }else{
+                            stack.getItem() instanceof ItemLongbow) {
+                    } else {
 //                        LogHelper.info("spending 5 ember");
                         EmberInventoryUtil.removeEmber((EntityPlayer)entity, 5.0D);
                     }

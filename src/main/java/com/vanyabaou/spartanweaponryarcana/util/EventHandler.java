@@ -9,7 +9,6 @@ import com.vanyabaou.spartanweaponryarcana.network.NetworkHandler;
 import com.vanyabaou.spartanweaponryarcana.network.PacketManaBurst;
 import com.vanyabaou.spartanweaponryarcana.weaponproperty.WeaponPropertySWA;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -24,26 +23,19 @@ import teamroots.embers.network.PacketHandler;
 import teamroots.embers.network.message.MessageEmberBurstFX;
 
 @Mod.EventBusSubscriber
-public class EventHandler 
-{
+public class EventHandler {
 	protected static int tickCounter = 0;
 	protected static int tickCounter2 = 0;
 	
 	@SubscribeEvent
-	public static void onPlayerTick(PlayerTickEvent ev)
-	{
-		if(ev.side == Side.SERVER && ev.phase == Phase.END)
-		{
+	public static void onPlayerTick(PlayerTickEvent ev) {
+		if (ev.side == Side.SERVER && ev.phase == Phase.END) {
 			tickCounter++;
 			tickCounter2++;
-			if(tickCounter == 20)
-			{
+			if (tickCounter == 20)
 				tickCounter = 0;
-			}
-			if(tickCounter2 == 5)
-			{
+			if (tickCounter2 == 20)
 				tickCounter2 = 0;
-			}
 		}
 	}
 
@@ -57,17 +49,12 @@ public class EventHandler
 	}
 	
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
-	public static void onAttackMiss(PlayerInteractEvent.LeftClickEmpty ev)
-	{
-		if(ev.getEntityPlayer() != null)
-		{
-			EntityPlayer player = ev.getEntityPlayer();
-			if(!ev.getItemStack().isEmpty() && ev.getItemStack().getItem() instanceof IWeaponPropertyContainer && !(ev.getItemStack().getItem() instanceof ItemThrowingWeapon))
-			{
+	public static void onAttackMiss(PlayerInteractEvent.LeftClickEmpty ev) {
+		if (ev.getEntityPlayer() != null) {
+			if (!ev.getItemStack().isEmpty() && ev.getItemStack().getItem() instanceof IWeaponPropertyContainer && !(ev.getItemStack().getItem() instanceof ItemThrowingWeapon)) {
 				WeaponProperty prop = ((IWeaponPropertyContainer)ev.getItemStack().getItem()).getFirstWeaponPropertyWithType(WeaponPropertySWA.TYPE_TERRA_SLASH);
 				
-				if(prop != null)
-				{
+				if (prop != null) {
 					NetworkHandler.sendPacketToServer(new PacketManaBurst());
 //					LogHelper.info("Sent Mana Burst Packet!");
 				}
@@ -85,36 +72,36 @@ public class EventHandler
 	public static void onLivingHurtEvent(LivingHurtEvent event) {
 		DamageSource source = event.getSource();
 		float damageDealt = event.getAmount();
-		if (source.getDamageType().equals("arrow") && source.getTrueSource() instanceof EntityLivingBase){
+		if (source.getDamageType().equals("arrow") && source.getTrueSource() instanceof EntityLivingBase) {
 			EntityLivingBase attacker = (EntityLivingBase) source.getTrueSource();
 			EntityLivingBase victim = event.getEntityLiving();
-			if (damageDealt > 0 && attacker != null && !attacker.getHeldItemMainhand().isEmpty()){
+			if (damageDealt > 0 && attacker != null && !attacker.getHeldItemMainhand().isEmpty()) {
 				ItemStack attackStack = attacker.getHeldItemMainhand();
-				if (attackStack.getItem() instanceof ItemLongbowSWA || attackStack.getItem() instanceof ItemCrossbowSWA){
+				if (attackStack.getItem() instanceof ItemLongbowSWA || attackStack.getItem() instanceof ItemCrossbowSWA) {
 					boolean doEmberEffects = false;
 					boolean isEmbersBow = false;
 					if (attackStack.getItem() instanceof ItemLongbowSWA) {
-						if (((ItemLongbowSWA) attackStack.getItem()).usesEmbers(attackStack)){
+						if (((ItemLongbowSWA) attackStack.getItem()).usesEmbers(attackStack)) {
 							isEmbersBow = true;
-							if (((ItemLongbowSWA) attackStack.getItem()).hasEmber(attackStack)){
+							if (((ItemLongbowSWA) attackStack.getItem()).hasEmber(attackStack)) {
 								doEmberEffects = true;
 							}
 						}
-					}else if (attackStack.getItem() instanceof ItemCrossbowSWA){
-						if (((ItemCrossbowSWA) attackStack.getItem()).usesEmbers(attackStack)){
+					} else if (attackStack.getItem() instanceof ItemCrossbowSWA) {
+						if (((ItemCrossbowSWA) attackStack.getItem()).usesEmbers()) {
 							isEmbersBow = true;
-							if (((ItemCrossbowSWA) attackStack.getItem()).hasEmber(attackStack)){
+							if (((ItemCrossbowSWA) attackStack.getItem()).hasEmber(attackStack)) {
 								doEmberEffects = true;
 							}
 						}
 					}
-					if (isEmbersBow){
-						if (doEmberEffects){
+					if (isEmbersBow) {
+						if (doEmberEffects) {
 							victim.setFire(1);
 							if (!victim.getEntityWorld().isRemote) {
 								PacketHandler.INSTANCE.sendToAll(new MessageEmberBurstFX(victim.posX, victim.posY + (double)victim.getEyeHeight() / 1.5D, victim.posZ));
 							}
-						}else{
+						} else {
 							event.setCanceled(true);
 						}
 					}

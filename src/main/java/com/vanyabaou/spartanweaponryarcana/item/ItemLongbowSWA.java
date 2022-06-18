@@ -24,31 +24,28 @@ import vazkii.botania.api.mana.IManaUsingItem;
 
 @Optional.Interface(iface="vazkii.botania.api.mana.IManaUsingItem", modid=ModHelper.MOD_ID_BOTANIA)
 @Optional.Interface(iface="vazkii.botania.api.item.IPixieSpawner", modid=ModHelper.MOD_ID_BOTANIA)
-public class ItemLongbowSWA extends ItemLongbow implements IManaUsingItem, IPixieSpawner
-{
+public class ItemLongbowSWA extends ItemLongbow implements IManaUsingItem, IPixieSpawner {
 	protected boolean usesMana = false;
 	protected boolean usesEmbers = false;
 	float pixieChance = 0.0f;
 	
-	public ItemLongbowSWA(String unlocName, ToolMaterialEx material, IWeaponCallback weaponCallback)
-	{
+	public ItemLongbowSWA(String unlocName, ToolMaterialEx material, IWeaponCallback weaponCallback) {
 		super(unlocName, SpartanWeaponryArcana.MOD_ID, material);
 		this.setCreativeTab(CreativeTabsSWA.TAB_SWA);
 		
 		usesMana = this.material.getFirstWeaponPropertyWithType(WeaponPropertySWA.TYPE_MANA_REGENERATE) != null;
 		WeaponProperty prop = this.material.getFirstWeaponPropertyWithType(WeaponPropertySWA.TYPE_PIXIELATED);
-		if(prop != null)
+		if (prop != null)
 			pixieChance = prop.getMagnitude() / 100.0f;
-		else
-		{
+		else {
 			prop = this.material.getFirstWeaponPropertyWithType(WeaponPropertySWA.TYPE_PIXIELATED);
-			if(prop != null)
+			if (prop != null)
 				pixieChance = prop.getMagnitude() / 100.0f;
 		}
 
 
 		WeaponProperty prop2 = this.material.getFirstWeaponPropertyWithType(WeaponPropertySWA.TYPE_CLOCKWORK);
-		if(prop2 != null){
+		if (prop2 != null){
 			System.out.println(unlocName + " uses Embers");
 			usesEmbers = true;
 		}
@@ -59,13 +56,13 @@ public class ItemLongbowSWA extends ItemLongbow implements IManaUsingItem, IPixi
 
 	@Override
 	public EnumAction getItemUseAction(ItemStack stack) {
-		if (usesEmbers){
-			if (hasEmber(stack)){
+		if (usesEmbers) {
+			if (hasEmber(stack)) {
 				return EnumAction.BOW;
-			}else{
+			} else {
 				return EnumAction.NONE;
 			}
-		}else{
+		} else {
 			return super.getItemUseAction(stack);
 		}
 	}
@@ -83,13 +80,13 @@ public class ItemLongbowSWA extends ItemLongbow implements IManaUsingItem, IPixi
 
 	@Override
 	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) {
-		if (usesEmbers){
-			if (EmberInventoryUtil.getEmberTotal((EntityPlayer) entityLiving) >= 5){
+		if (usesEmbers) {
+			if (EmberInventoryUtil.getEmberTotal((EntityPlayer) entityLiving) >= 5) {
 				EmberInventoryUtil.removeEmber((EntityPlayer) entityLiving,5);
 				NBTHelper.setBoolean(stack,"didUse", true);
 				super.onPlayerStoppedUsing(stack, worldIn, entityLiving, timeLeft);
 			}
-		}else{
+		} else {
 			super.onPlayerStoppedUsing(stack, worldIn, entityLiving, timeLeft);
 		}
 	}
@@ -112,13 +109,13 @@ public class ItemLongbowSWA extends ItemLongbow implements IManaUsingItem, IPixi
 
 	@Override
 	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
-		if (usesEmbers){
+		if (usesEmbers) {
 			if (oldStack.hasTagCompound() && newStack.hasTagCompound()) {
 				return NBTHelper.getBoolean(oldStack,"poweredOn") != NBTHelper.getBoolean(newStack,"poweredOn");
 			} else {
 				return false;
 			}
-		}else{
+		} else {
 			return super.shouldCauseReequipAnimation(oldStack, newStack, slotChanged);
 		}
 	}

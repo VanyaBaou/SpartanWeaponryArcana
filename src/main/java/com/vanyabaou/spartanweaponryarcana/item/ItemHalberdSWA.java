@@ -21,24 +21,21 @@ import vazkii.botania.api.mana.IManaUsingItem;
 @Optional.Interface(iface="vazkii.botania.api.mana.IManaUsingItem", modid=ModHelper.MOD_ID_BOTANIA)
 @Optional.Interface(iface="vazkii.botania.api.item.IPixieSpawner", modid=ModHelper.MOD_ID_BOTANIA)
 @Optional.Interface(iface="vazkii.botania.api.mana.ILensEffect", modid=ModHelper.MOD_ID_BOTANIA)
-public class ItemHalberdSWA extends ItemHalberd implements IManaUsingItem, IPixieSpawner, ILensEffect
-{
+public class ItemHalberdSWA extends ItemHalberd implements IManaUsingItem, IPixieSpawner, ILensEffect {
 	protected boolean usesMana = false;
 	float pixieChance = 0.0f;
 
-	public ItemHalberdSWA(String unlocName, ToolMaterialEx material) 
-	{
+	public ItemHalberdSWA(String unlocName, ToolMaterialEx material) {
 		super(unlocName, SpartanWeaponryArcana.MOD_ID, material);
 		this.setCreativeTab(CreativeTabsSWA.TAB_SWA);
 		
 		usesMana = this.getFirstWeaponPropertyWithType(WeaponPropertySWA.TYPE_MANA_REGENERATE) != null ? true : this.materialEx.getFirstWeaponPropertyWithType(WeaponPropertySWA.TYPE_MANA_REGENERATE) != null;
 		WeaponProperty prop = this.getFirstWeaponPropertyWithType(WeaponPropertySWA.TYPE_PIXIELATED);
-		if(prop != null)
+		if (prop != null)
 			pixieChance = prop.getMagnitude() / 100.0f;
-		else
-		{
+		else {
 			prop = this.materialEx.getFirstWeaponPropertyWithType(WeaponPropertySWA.TYPE_PIXIELATED);
-			if(prop != null)
+			if (prop != null)
 				pixieChance = prop.getMagnitude() / 100.0f;
 		}
 	}
@@ -59,14 +56,12 @@ public class ItemHalberdSWA extends ItemHalberd implements IManaUsingItem, IPixi
 	public void apply(ItemStack stack, BurstProperties props) {}
 
 	@Override
-	public boolean collideBurst(IManaBurst burst, RayTraceResult pos, boolean isManaBlock, boolean dead, ItemStack stack) 
-	{
+	public boolean collideBurst(IManaBurst burst, RayTraceResult pos, boolean isManaBlock, boolean dead, ItemStack stack) {
 		return dead;
 	}
 
 	@Override
-	public void updateBurst(IManaBurst burst, ItemStack stack)
-	{
+	public void updateBurst(IManaBurst burst, ItemStack stack) {
 		ManaBurstHelper.updateBurst(burst, stack, this.getDirectAttackDamage() + 1.0f);
 	}
 

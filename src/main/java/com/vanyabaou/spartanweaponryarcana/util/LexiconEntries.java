@@ -14,29 +14,32 @@ import vazkii.botania.common.lexicon.CompatLexiconEntry;
 import vazkii.botania.common.lexicon.page.PageCraftingRecipe;
 import vazkii.botania.common.lexicon.page.PageText;
 
-public class LexiconEntries 
-{
+public class LexiconEntries {
 	protected static LexiconEntry entryManasteelWeaponry;
 	protected static LexiconEntry entryTerrasteelWeaponry;
 	protected static LexiconEntry entryElementiumWeaponry;
 
 	@Optional.Method(modid = ModHelper.MOD_ID_BOTANIA)
-	public static void postInit()
-	{
-		final List<ResourceLocation> livingwoodHandles = Arrays.asList(new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "handle_livingwood_string"),
-																new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "handle_livingwood_leather"),
-																new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "handle_livingwood_wool"));
-		final List<ResourceLocation> livingwoodPoles = Arrays.asList(new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "pole_livingwood_string"),
-																new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "pole_livingwood_leather"),
-																new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "pole_livingwood_wool"));
+	public static void postInit() {
+		final List<ResourceLocation> livingwoodHandles = Arrays.asList(
+				new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "handle_livingwood_string"),
+				new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "handle_livingwood_leather"),
+				new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "handle_livingwood_wool"));
+		final List<ResourceLocation> livingwoodPoles = Arrays.asList(
+				new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "pole_livingwood_string"),
+				new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "pole_livingwood_leather"),
+				new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "pole_livingwood_wool"));
 
-		final List<ResourceLocation> dreamwoodHandles = Arrays.asList(new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "handle_dreamwood_string"),
-																new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "handle_dreamwood_leather"),
-																new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "handle_dreamwood_wool"));
-		final List<ResourceLocation> dreamwoodPoles = Arrays.asList(new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "pole_dreamwood_string"),
-																new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "pole_dreamwood_leather"),
-																new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "pole_dreamwood_wool"));
-		final List<ResourceLocation> dreamwoodCrossbowLimb = Arrays.asList(new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "crossbow_limb_dreamwood"));
+		final List<ResourceLocation> dreamwoodHandles = Arrays.asList(
+				new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "handle_dreamwood_string"),
+				new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "handle_dreamwood_leather"),
+				new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "handle_dreamwood_wool"));
+		final List<ResourceLocation> dreamwoodPoles = Arrays.asList(
+				new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "pole_dreamwood_string"),
+				new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "pole_dreamwood_leather"),
+				new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "pole_dreamwood_wool"));
+		final List<ResourceLocation> dreamwoodCrossbowLimb = Arrays.asList(
+				new ResourceLocation(SpartanWeaponryArcana.MOD_ID, "crossbow_limb_dreamwood"));
 		
 		entryManasteelWeaponry = new CompatLexiconEntry("manaWeaponry", BotaniaAPI.categoryTools, SpartanWeaponryArcana.MOD_NAME);
 		entryManasteelWeaponry.setPriority().setLexiconPages(new PageText("0"),

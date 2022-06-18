@@ -4,8 +4,7 @@ import com.oblivioussp.spartanweaponry.api.weaponproperty.WeaponProperty;
 import com.oblivioussp.spartanweaponry.api.weaponproperty.WeaponPropertyWithMagnitude;
 import com.vanyabaou.spartanweaponryarcana.SpartanWeaponryArcana;
 
-public class WeaponPropertySWA
-{
+public class WeaponPropertySWA {
 	public static final String TYPE_MANA_REGENERATE = "mana_regenerate";
 	public static final String TYPE_TERRA_SLASH = "terra_slash";
 	public static final String TYPE_PIXIELATED = "pixielated";

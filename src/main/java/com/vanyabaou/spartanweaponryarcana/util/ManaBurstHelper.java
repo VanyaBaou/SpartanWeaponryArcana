@@ -22,8 +22,7 @@ import vazkii.botania.common.entity.EntityManaBurst;
 import vazkii.botania.common.item.equipment.tool.ToolCommons;
 
 import java.util.List;
-public class ManaBurstHelper 
-{
+public class ManaBurstHelper {
 	public static final String TAG_ATTACKER_USERNAME = "attackerUsername";
 	public static final int MANA_PER_DAMAGE = 100;
 
@@ -31,10 +30,8 @@ public class ManaBurstHelper
 	// From "ItemTerraSword.java", method "trySpawnBurst()"
 	
 	// Alteration: Removed the item checking on main hand because it is redundant.
-	public static void trySpawnBurst(EntityPlayer player)
-	{
-		if(player.getCooledAttackStrength(0.0f) == 1)
-		{
+	public static void trySpawnBurst(EntityPlayer player) {
+		if (player.getCooledAttackStrength(0.0f) == 1) {
 			EntityManaBurst burst = ManaBurstHelper.getBurst(player, player.getHeldItemMainhand());
 			player.world.spawnEntity(burst);
 			ToolCommons.damageItem(player.getHeldItemMainhand(), 1, player, ManaBurstHelper.MANA_PER_DAMAGE);
@@ -44,24 +41,23 @@ public class ManaBurstHelper
 
 	// From "ItemTerraSword.java", method "updateBurst()"
 	// ALTERATION: Added damage parameter to alter damage from a mana burst.
-	public static void updateBurst(IManaBurst burst, ItemStack stack, float weaponDamage)
-	{
+	public static void updateBurst(IManaBurst burst, ItemStack stack, float weaponDamage) {
 		EntityThrowable entity = (EntityThrowable) burst;
 		AxisAlignedBB axis = new AxisAlignedBB(entity.posX, entity.posY, entity.posZ, entity.lastTickPosX, entity.lastTickPosY, entity.lastTickPosZ).grow(1);
 		List<EntityLivingBase> entities = entity.world.getEntitiesWithinAABB(EntityLivingBase.class, axis);
 		String attacker = ItemNBTHelper.getString(burst.getSourceLens(), ManaBurstHelper.TAG_ATTACKER_USERNAME, "");
 
-		for(EntityLivingBase living : entities) {
-			if(living instanceof EntityPlayer && (living.getName().equals(attacker) || FMLCommonHandler.instance().getMinecraftServerInstance() != null && !FMLCommonHandler.instance().getMinecraftServerInstance().isPVPEnabled()))
+		for (EntityLivingBase living : entities) {
+			if (living instanceof EntityPlayer && (living.getName().equals(attacker) || FMLCommonHandler.instance().getMinecraftServerInstance() != null && !FMLCommonHandler.instance().getMinecraftServerInstance().isPVPEnabled()))
 				continue;
 
-			if(living.hurtTime == 0) {
+			if (living.hurtTime == 0) {
 				int cost = ManaBurstHelper.MANA_PER_DAMAGE / 3;
 				int mana = burst.getMana();
-				if(mana >= cost) {
+				if (mana >= cost) {
 					burst.setMana(mana - cost);
 					float damage = weaponDamage /*4F + BotaniaAPI.terrasteelToolMaterial.getAttackDamage()*/;
-					if(!burst.isFake() && !entity.world.isRemote) {
+					if (!burst.isFake() && !entity.world.isRemote) {
 						EntityPlayer player = living.world.getPlayerEntityByName(attacker);
 						living.attackEntityFrom(player == null ? DamageSource.MAGIC : DamageSource.causePlayerDamage(player), damage);
 						entity.setDead();
@@ -74,8 +70,7 @@ public class ManaBurstHelper
 	
 	// The following code is taken from the Botania mod by Vazkii
 	// From "ItemTerraSword.java", method "getBurst()"
-	public static EntityManaBurst getBurst(EntityPlayer player, ItemStack stack)
-	{
+	public static EntityManaBurst getBurst(EntityPlayer player, ItemStack stack) {
 		EntityManaBurst burst = new EntityManaBurst(player, EnumHand.MAIN_HAND);
 
 		float motionModifier = 7F;

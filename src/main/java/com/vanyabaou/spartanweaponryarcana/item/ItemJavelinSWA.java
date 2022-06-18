@@ -15,24 +15,21 @@ import vazkii.botania.api.mana.IManaUsingItem;
 
 @Optional.Interface(iface="vazkii.botania.api.mana.IManaUsingItem", modid=ModHelper.MOD_ID_BOTANIA)
 @Optional.Interface(iface="vazkii.botania.api.item.IPixieSpawner", modid=ModHelper.MOD_ID_BOTANIA)
-public class ItemJavelinSWA extends ItemJavelin implements IManaUsingItem, IPixieSpawner
-{
+public class ItemJavelinSWA extends ItemJavelin implements IManaUsingItem, IPixieSpawner {
 	protected boolean usesMana = false;
 	float pixieChance = 0.0f;
 
-	public ItemJavelinSWA(String unlocName, ToolMaterialEx material) 
-	{
+	public ItemJavelinSWA(String unlocName, ToolMaterialEx material) {
 		super(unlocName, SpartanWeaponryArcana.MOD_ID, material);
 		this.setCreativeTab(CreativeTabsSWA.TAB_SWA);
 		
 		usesMana = this.getFirstWeaponPropertyWithType(WeaponPropertySWA.TYPE_MANA_REGENERATE) != null ? true : this.materialEx.getFirstWeaponPropertyWithType(WeaponPropertySWA.TYPE_MANA_REGENERATE) != null;
 		WeaponProperty prop = this.getFirstWeaponPropertyWithType(WeaponPropertySWA.TYPE_PIXIELATED);
-		if(prop != null)
+		if (prop != null)
 			pixieChance = prop.getMagnitude() / 100.0f;
-		else
-		{
+		else {
 			prop = this.materialEx.getFirstWeaponPropertyWithType(WeaponPropertySWA.TYPE_PIXIELATED);
-			if(prop != null)
+			if (prop != null)
 				pixieChance = prop.getMagnitude() / 100.0f;
 		}
 	}
